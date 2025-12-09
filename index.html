@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>مشاريع هديل</title>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
     body {
       font-family: 'Cairo', sans-serif;
@@ -29,7 +30,7 @@
     }
 
     .projects-container {
-      max-width: 950px;
+      max-width: 1000px;
       margin: 40px auto;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -44,6 +45,7 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.06);
       transition: 0.25s;
       border: 1px solid #e5e7eb;
+      text-align: center;
     }
 
     .project-card:hover {
@@ -55,13 +57,6 @@
       margin: 10px 0;
       font-size: 20px;
       color: #0ea5e9;
-    }
-
-    .project-card p {
-      font-size: 15px;
-      color: #555;
-      margin-bottom: 15px;
-      height: 45px;
     }
 
     .project-card a {
@@ -97,33 +92,39 @@
 
   <section class="projects-container">
 
+    <!-- Task1 -->
     <div class="project-card">
-      <h3>TrainIUG</h3>
-      <p>مشروع تدريب يضم صفحات HTML, CSS وجافاسكربت.</p>
-      <a href="https://github.com/HadeelAbed/TrainIUG" target="_blank">عرض المشروع</a>
+      <h3>Task1 - Profile Card</h3>
+      <a href="Task1/index1.html" target="_blank">Profile Card</a>
     </div>
 
     <div class="project-card">
-     <h3>Task1 - Profile Card</h3>
-     <a href="Task1/index1.html" target="_blank">Profile Card</a>
-   </div>
+      <h3>Task1 - Login Card</h3>
+      <a href="Task1/index2.html" target="_blank">Login Card</a>
+    </div>
 
+    <div class="project-card">
+      <h3>Task1 - Contacts Table</h3>
+      <a href="Task1/index3.html" target="_blank">Contacts Table</a>
+    </div>
 
-   <div class="project-card">
-     <h3>Task1 - Login Card</h3>
-    <a href="Task1/index2.html" target="_blank">Login Card</a>
-   </div>
-    
-   <div class="project-card">
-     <h3>Task1 - Contacts Table</h3>
-    <a href="Task1/index3.html" target="_blank">Contacts Table</a>
-   </div>
-    
-   <div class="project-card">
-     <h3>Task1 - Support Ticket</h3>
-    <a href="Task1/index4.html" target="_blank">Support Ticket</a>
-   </div>
+    <div class="project-card">
+      <h3>Task1 - Support Ticket</h3>
+      <a href="Task1/index4.html" target="_blank">Support Ticket</a>
+    </div>
 
+    <!-- Task2 -->
+    <div class="project-card">
+      <h3>Task2 - Project 1</h3>
+      <a href="Task2/project1.html" target="_blank">عرض المشروع</a>
+    </div>
+
+    <div class="project-card">
+      <h3>Task2 - Project 2</h3>
+      <a href="Task2/project2.html" target="_blank">عرض المشروع</a>
+    </div>
+
+    <!-- يمكنك إضافة باقي الـ Tasks بنفس الطريقة -->
 
   </section>
 
@@ -133,4 +134,5 @@
 
 </body>
 </html>
+
 
