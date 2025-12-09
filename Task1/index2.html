@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login Card</title>
+
+    <!-- Cairo font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style2.css" />
+  </head>
+  <body>
+    <!-- Login Card -->
+    <section class="login-card" aria-label="login">
+      <div class="login-top">
+        <img src="images/login.png" alt="Login Icon" class="login-icon" />
+        <p class="login-text">LOGIN</p>
+      </div>
+
+      <form onsubmit="event.preventDefault()">
+        <div class="field">
+          <label for="username">Username</label>
+          <input
+            id="username"
+            name="username"
+            type="text"
+            placeholder="Enter username"
+          />
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            placeholder="Enter password"
+          />
+        </div>
+
+        <div class="row">
+          <label><input type="checkbox" /> Remember Me</label>
+          <a href="#" style="color: var(--primary); text-decoration: none">
+            Forget Password?
+          </a>
+        </div>
+
+        <button class="btn" type="submit">Login</button>
+      </form>
+    </section>
+  </body>
+</html>

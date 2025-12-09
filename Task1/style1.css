@@ -1,0 +1,92 @@
+:root {
+  --bg: #e9e9e9;
+  --card-bg: #fbffff;
+  --primary: #0ea5e9;
+  --muted: #9aa0a6;
+  --shadow: rgba(25, 25, 25, 0.06);
+  --shadow-strong: rgba(25, 25, 25, 0.1);
+  --radius: 14px;
+  --card-width: 360px;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
+  background: var(--bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 48px;
+}
+
+.profile-card {
+  width: var(--card-width);
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 0 12px 24px var(--shadow);
+  padding: 44px 34px;
+  text-align: center;
+  position: relative;
+}
+
+.avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #0ea5e9 0%, #0782c2 100%);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  box-shadow: 0 6px 16px var(--shadow-strong);
+  margin-top: -36px;
+  margin-bottom: 14px;
+}
+
+h3 {
+  margin: 8px 0 4px;
+  font-size: 20px;
+}
+.role {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.bio {
+  font-size: 15px;
+  color: #384047;
+  line-height: 1.45;
+  margin: 0 auto 18px;
+  max-width: 80%;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.social {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14, 165, 233, 0.12);
+  color: #0a8fc1;
+  text-decoration: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.social:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(10, 20, 30, 0.06);
+}
