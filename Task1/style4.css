@@ -1,0 +1,113 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1d1b1b;
+  margin: 0;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+.ticket-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(117, 115, 115, 0.973);
+  padding: 25px;
+  border-radius: 8px;
+  border: 15px solid rgba(85, 85, 85, 0.973);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ticket-id {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #d0d3d0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.field-row {
+  display: flex;
+  margin-bottom: 18px;
+  align-items: flex-start;
+}
+
+.field-label {
+  font-weight: 600;
+  color: #e6e6e6;
+  width: 140px;
+  min-width: 140px;
+  padding-top: 2px;
+}
+
+.field-value {
+  flex: 1;
+  color: #444;
+}
+
+.name-with-bullet {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5px;
+}
+
+.bullet {
+  color: #68ad57;
+  font-size: 27px;
+  margin-right: 6px;
+  line-height: 1;
+}
+
+.name-with-bullet p {
+  /* font-weight: 500; */
+  color: #e4e4c2;
+}
+
+.no-support {
+  color: #e92222;
+  font-size: 13px;
+  margin-left: 20px;
+}
+
+.email-link {
+  color: #e4e4c2;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.response-time {
+  color: #d0d3d0;
+}
+
+.link {
+  color: #e4e4c2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: #0066cc;
+  text-decoration: underline;
+}
+
+.status {
+  color: #e6871a;
+  font-weight: 500;
+}
+
+.separator {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 18px 0 22px 0;
+}
+
+.name-section {
+  margin-bottom: 5px;
+}
+
+.last-action {
+  color: #d0d3d0;
+}

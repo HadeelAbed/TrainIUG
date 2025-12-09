@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacts Table with Promotion Status</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style3.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Contacts Table</h1>
+      <p class="description">
+        A table showing contact information with visual promotion indicators
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Contact name</th>
+              <th>City</th>
+              <th>Country</th>
+              <th>Is Promoted</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Maria Anders</td>
+              <td>Berlin</td>
+              <td>
+                <span class="country-flag germany-flag" title="Germany"></span>
+                Germany
+              </td>
+              <td>
+                <i
+                  class="fas fa-check-circle promoted-true"
+                  title="Promoted"
+                ></i>
+              </td>
+            </tr>
+            <tr>
+              <td>Ana Trujillo</td>
+              <td>México D.F.</td>
+              <td>
+                <span class="country-flag mexico-flag" title="Mexico"></span>
+                Mexico
+              </td>
+              <td>
+                <i
+                  class="fas fa-times-circle promoted-false"
+                  title="Not Promoted"
+                ></i>
+              </td>
+            </tr>
+            <tr>
+              <td>Antonio Moreno</td>
+              <td>México D.F.</td>
+              <td>
+                <span class="country-flag mexico-flag" title="Mexico"></span>
+                Mexico
+              </td>
+              <td>
+                <i
+                  class="fas fa-check-circle promoted-true"
+                  title="Promoted"
+                ></i>
+              </td>
+            </tr>
+            <tr>
+              <td>Thomas Hardy</td>
+              <td>London</td>
+              <td>
+                <span
+                  class="country-flag uk-flag"
+                  title="United Kingdom"
+                ></span>
+                UK
+              </td>
+              <td>
+                <i
+                  class="fas fa-times-circle promoted-false"
+                  title="Not Promoted"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item">
+          <i class="fas fa-check-circle promoted-true"></i>
+          <span>Promoted</span>
+        </div>
+        <div class="legend-item">
+          <i class="fas fa-times-circle promoted-false"></i>
+          <span>Not Promoted</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Simple interactive effects
+      document.addEventListener("DOMContentLoaded", function () {
+        // Add hover effect to table rows
+        const rows = document.querySelectorAll("tbody tr");
+        rows.forEach((row) => {
+          row.addEventListener("mouseenter", function () {
+            this.style.transform = "translateX(5px)";
+            this.style.transition = "transform 0.2s";
+          });
+
+          row.addEventListener("mouseleave", function () {
+            this.style.transform = "translateX(0)";
+          });
+        });
+
+        // Add click to show promotion status as text
+        const promotionIcons = document.querySelectorAll(
+          ".promoted-true, .promoted-false"
+        );
+        promotionIcons.forEach((icon) => {
+          icon.addEventListener("click", function () {
+            const isPromoted = this.classList.contains("promoted-true");
+            const contactName =
+              this.closest("tr").querySelector("td:first-child").textContent;
+            const status = isPromoted ? "is promoted" : "is not promoted";
+            alert(`${contactName} ${status}`);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
