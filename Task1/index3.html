@@ -12,11 +12,6 @@
   </head>
   <body>
     <div class="container">
-      <h1>Contacts Table</h1>
-      <p class="description">
-        A table showing contact information with visual promotion indicators
-      </p>
-
       <div class="table-container">
         <table>
           <thead>
@@ -32,7 +27,11 @@
               <td>Maria Anders</td>
               <td>Berlin</td>
               <td>
-                <span class="country-flag germany-flag" title="Germany"></span>
+                <img
+                  src="images/Germany.jpeg"
+                  alt="Germany"
+                  class="country-flag"
+                />
                 Germany
               </td>
               <td>
@@ -46,7 +45,11 @@
               <td>Ana Trujillo</td>
               <td>México D.F.</td>
               <td>
-                <span class="country-flag mexico-flag" title="Mexico"></span>
+                <img
+                  src="images/mexico.png"
+                  alt="Mexico"
+                  class="country-flag"
+                />
                 Mexico
               </td>
               <td>
@@ -60,7 +63,11 @@
               <td>Antonio Moreno</td>
               <td>México D.F.</td>
               <td>
-                <span class="country-flag mexico-flag" title="Mexico"></span>
+                <img
+                  src="images/mexico.png"
+                  alt="Mexico"
+                  class="country-flag"
+                />
                 Mexico
               </td>
               <td>
@@ -74,10 +81,7 @@
               <td>Thomas Hardy</td>
               <td>London</td>
               <td>
-                <span
-                  class="country-flag uk-flag"
-                  title="United Kingdom"
-                ></span>
+                <img src="images/UK.png" alt="UK" class="country-flag" />
                 UK
               </td>
               <td>
@@ -90,49 +94,6 @@
           </tbody>
         </table>
       </div>
-
-      <div class="legend">
-        <div class="legend-item">
-          <i class="fas fa-check-circle promoted-true"></i>
-          <span>Promoted</span>
-        </div>
-        <div class="legend-item">
-          <i class="fas fa-times-circle promoted-false"></i>
-          <span>Not Promoted</span>
-        </div>
-      </div>
     </div>
-
-    <script>
-      // Simple interactive effects
-      document.addEventListener("DOMContentLoaded", function () {
-        // Add hover effect to table rows
-        const rows = document.querySelectorAll("tbody tr");
-        rows.forEach((row) => {
-          row.addEventListener("mouseenter", function () {
-            this.style.transform = "translateX(5px)";
-            this.style.transition = "transform 0.2s";
-          });
-
-          row.addEventListener("mouseleave", function () {
-            this.style.transform = "translateX(0)";
-          });
-        });
-
-        // Add click to show promotion status as text
-        const promotionIcons = document.querySelectorAll(
-          ".promoted-true, .promoted-false"
-        );
-        promotionIcons.forEach((icon) => {
-          icon.addEventListener("click", function () {
-            const isPromoted = this.classList.contains("promoted-true");
-            const contactName =
-              this.closest("tr").querySelector("td:first-child").textContent;
-            const status = isPromoted ? "is promoted" : "is not promoted";
-            alert(`${contactName} ${status}`);
-          });
-        });
-      });
-    </script>
   </body>
 </html>
