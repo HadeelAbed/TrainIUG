@@ -1,0 +1,46 @@
+<!-- Task 1: Toggle Content on Button Click -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Toggle Content</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      #studentInfo {
+        margin-top: 15px;
+        padding: 15px;
+        background-color: #f2f2f2;
+        display: none;
+      }
+
+      button {
+        padding: 8px 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Student Information</h2>
+    <button id="toggleBtn">Show / Hide Details</button>
+
+    <div id="studentInfo">
+      <p><strong>Name:</strong> Hadeel</p>
+      <p><strong>Major:</strong> Computer Engineering</p>
+      <p><strong>Level:</strong> 4th Year</p>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#toggleBtn").click(function () {
+          $("#studentInfo").toggle();
+        });
+      });
+    </script>
+  </body>
+</html>

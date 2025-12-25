@@ -1,0 +1,56 @@
+<!-- Task 3: Form Validation with jQuery -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Form Validation</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      input {
+        display: block;
+        margin-bottom: 10px;
+        padding: 8px;
+        width: 250px;
+      }
+
+      #errorMsg {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Student Registration Form</h2>
+
+    <form id="studentForm">
+      <input type="text" id="name" placeholder="Student Name" />
+      <input type="email" id="email" placeholder="Email Address" />
+      <input type="text" id="major" placeholder="Major" />
+      <button type="submit">Register</button>
+    </form>
+
+    <p id="errorMsg"></p>
+
+    <script>
+      $(document).ready(function () {
+        $("#studentForm").submit(function (e) {
+          let name = $("#name").val();
+          let email = $("#email").val();
+          let major = $("#major").val();
+
+          if (name === "" || email === "" || major === "") {
+            e.preventDefault();
+            $("#errorMsg").text("All fields are required!");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

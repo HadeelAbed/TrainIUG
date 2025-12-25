@@ -1,0 +1,58 @@
+<!-- Task 1: Live Character Counter -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Live Character Counter</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      textarea {
+        width: 100%;
+        padding: 10px;
+      }
+
+      #counter {
+        margin-top: 5px;
+        font-weight: bold;
+      }
+
+      .warning {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Project Description</h2>
+
+    <textarea
+      id="textArea"
+      rows="5"
+      maxlength="200"
+      placeholder="Write a short project description..."
+    ></textarea>
+
+    <p id="counter">0 / 200 characters</p>
+
+    <script>
+      const textArea = document.getElementById("textArea");
+      const counter = document.getElementById("counter");
+      const maxChars = 200;
+
+      textArea.addEventListener("input", function () {
+        const currentLength = textArea.value.length;
+        counter.textContent = currentLength + " / " + maxChars + " characters";
+
+        if (currentLength >= maxChars - 20) {
+          counter.classList.add("warning");
+        } else {
+          counter.classList.remove("warning");
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!-- Task 2: Highlight Selected List Item -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Highlight List Item</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      li {
+        padding: 10px;
+        margin: 5px 0;
+        cursor: pointer;
+        border: 1px solid #ccc;
+      }
+
+      .selected {
+        background-color: #cce5ff;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Select Your Course</h2>
+
+    <ul id="courseList">
+      <li>Operating Systems</li>
+      <li>Computer Networks</li>
+      <li>Database Systems</li>
+      <li>Web Development</li>
+    </ul>
+
+    <script>
+      $(document).ready(function () {
+        $("#courseList li").click(function () {
+          $("#courseList li").removeClass("selected");
+          $(this).addClass("selected");
+        });
+      });
+    </script>
+  </body>
+</html>

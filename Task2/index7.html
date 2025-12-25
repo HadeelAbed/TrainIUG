@@ -1,0 +1,72 @@
+<!-- Task 3: Simple Number Guessing Game -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Number Guessing Game</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 30px;
+      }
+
+      input {
+        padding: 8px;
+        width: 200px;
+      }
+
+      button {
+        padding: 8px 15px;
+        margin-left: 5px;
+      }
+
+      #result {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Number Guessing Game</h2>
+    <p>Guess a number between <strong>1 and 10</strong></p>
+
+    <input type="number" id="guess" min="1" max="10" />
+    <button id="check">Check</button>
+    <button id="reset">Reset</button>
+
+    <p id="result"></p>
+
+    <script>
+      let randomNumber = generateNumber();
+
+      function generateNumber() {
+        return Math.floor(Math.random() * 10) + 1;
+      }
+
+      document.getElementById("check").addEventListener("click", function () {
+        const userGuess = parseInt(document.getElementById("guess").value);
+        const result = document.getElementById("result");
+
+        if (isNaN(userGuess)) {
+          result.textContent = "Please enter a number!";
+          return;
+        }
+
+        if (userGuess < randomNumber) {
+          result.textContent = "Too low";
+        } else if (userGuess > randomNumber) {
+          result.textContent = "Too high";
+        } else {
+          result.textContent = "Correct!";
+        }
+      });
+
+      document.getElementById("reset").addEventListener("click", function () {
+        randomNumber = generateNumber();
+        document.getElementById("guess").value = "";
+        document.getElementById("result").textContent = "";
+      });
+    </script>
+  </body>
+</html>

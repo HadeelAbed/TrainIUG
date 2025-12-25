@@ -1,0 +1,58 @@
+<!-- Task 4: Accordion Menu -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Accordion Menu</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      h3 {
+        background-color: #e9ecef;
+        padding: 10px;
+        cursor: pointer;
+        margin: 0;
+      }
+
+      .content {
+        display: none;
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>University System FAQ</h2>
+
+    <h3>How to register courses?</h3>
+    <div class="content">
+      Students can register courses through the university portal.
+    </div>
+
+    <h3>How to check grades?</h3>
+    <div class="content">
+      Grades are available at the end of each semester on the system.
+    </div>
+
+    <h3>How to contact administration?</h3>
+    <div class="content">
+      Contact the administration via official university email.
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("h3").click(function () {
+          $(".content").slideUp();
+          $(this).next(".content").slideDown();
+        });
+      });
+    </script>
+  </body>
+</html>

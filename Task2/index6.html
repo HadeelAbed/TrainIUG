@@ -1,0 +1,44 @@
+<!-- Task 2: Change Background Color on Button Click -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Change Background Color</title>
+
+    <style>
+      body {
+        font-family: Arial;
+        text-align: center;
+        padding-top: 50px;
+        transition: background-color 0.4s;
+      }
+
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Choose Page Theme</h2>
+
+    <!-- نفس الألوان المكتوبة -->
+    <button data-color="red">Red</button>
+    <button data-color="green">Green</button>
+    <button data-color="blue">Blue</button>
+    <button data-color="white">Reset</button>
+
+    <script>
+      const buttons = document.querySelectorAll("button");
+
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          document.body.style.backgroundColor = btn.dataset.color;
+        });
+      });
+    </script>
+  </body>
+</html>
