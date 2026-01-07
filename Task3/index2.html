@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electro Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --red: #d10024;
+        --dark: #15161d;
+        --gray: #8d99ae;
+        --light: #f5f5f5;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      /* TOP BAR */
+      .top-bar {
+        background: #1e1f29;
+        color: #fff;
+        font-size: 14px;
+      }
+
+      /* NAVBAR */
+      .navbar {
+        background: var(--dark);
+      }
+      .navbar-brand {
+        font-weight: 800;
+        font-size: 28px;
+      }
+      .navbar-brand span {
+        color: var(--red);
+      }
+      .nav-link {
+        color: #fff !important;
+        margin: 0 8px;
+      }
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--red) !important;
+      }
+
+      /* HERO */
+      .hero {
+        background: var(--light);
+      }
+      .hero-box {
+        background: var(--red);
+        height: 220px;
+        border-radius: 10px;
+        color: #fff;
+        padding: 20px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-box img {
+        position: absolute;
+        right: 10px;
+        bottom: 10px;
+        height: 120px;
+      }
+      .hero-box button {
+        border-radius: 20px;
+      }
+
+      /* PRODUCT CARD */
+      .product {
+        border: 1px solid #eee;
+        padding: 20px;
+        text-align: center;
+        transition: 0.3s;
+        position: relative;
+        background: #fff;
+        border-radius: 10px;
+      }
+      .product:hover {
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+      .product img {
+        height: 160px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+      .product h6 {
+        font-size: 13px;
+        color: var(--gray);
+        margin-bottom: 5px;
+      }
+      .product h5 {
+        margin-bottom: 10px;
+      }
+      .price {
+        color: var(--red);
+        font-weight: 700;
+      }
+      .product-actions i {
+        cursor: pointer;
+        margin: 0 5px;
+        transition: 0.2s;
+      }
+      .product-actions i:hover {
+        color: var(--red);
+      }
+
+      /* DEAL */
+      .deal {
+        background: #e9ecef;
+        padding: 60px 0;
+      }
+      .deal span {
+        width: 80px;
+        height: 80px;
+        background: var(--red);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-weight: 700;
+      }
+
+      /* NEWSLETTER */
+      .newsletter {
+        background: #f5f5f5;
+        padding: 50px 0;
+      }
+
+      /* FOOTER */
+      footer {
+        background: #15161d;
+        color: #b9babc;
+      }
+      footer h6 {
+        color: #fff;
+      }
+      footer li {
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <div class="top-bar py-2">
+      <div class="container d-flex justify-content-between">
+        <div>📧 email@email.com | 📞 +970-000-000</div>
+        <div>USD | My Account</div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">Electro<span>.</span></a>
+
+        <button
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#nav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="nav">
+          <form class="d-flex mx-auto my-3 my-lg-0 search-box">
+            <input class="form-control rounded-0" placeholder="Search here" />
+            <button class="btn btn-danger rounded-0">Search</button>
+          </form>
+
+          <div class="text-white">
+            <i class="bi bi-heart me-3"></i>
+            <i class="bi bi-cart"></i>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- MENU -->
+    <div class="border-bottom">
+      <div class="container">
+        <ul class="nav py-2">
+          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Hot Deals</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Laptops</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Smartphones</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Cameras</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Accessories</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero py-5">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="hero-box">
+              <h4>Laptop Collection</h4>
+              <button class="btn btn-light btn-sm mt-2">Shop Now</button>
+              <img src="assets/imgs/shop01.png" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="hero-box">
+              <h4>Accessories</h4>
+              <button class="btn btn-light btn-sm mt-2">Shop Now</button>
+              <img src="assets/imgs/shop03.png" />
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="hero-box">
+              <h4>Cameras</h4>
+              <button class="btn btn-light btn-sm mt-2">Shop Now</button>
+              <img src="assets/imgs/shop02.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW PRODUCTS -->
+    <section class="container my-5">
+      <h4 class="fw-bold mb-4">NEW PRODUCTS</h4>
+      <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product05.png" />
+            <h6>Category</h6>
+            <h5>Headphones</h5>
+            <p class="price">$980.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product01.png" />
+            <h6>Category</h6>
+            <h5>Laptop</h5>
+            <p class="price">$980.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product04.png" />
+            <h6>Category</h6>
+            <h5>Tablet</h5>
+            <p class="price">$980.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product02.png" />
+            <h6>Category</h6>
+            <h5>Headset</h5>
+            <p class="price">$980.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOT DEAL -->
+    <section class="deal text-center">
+      <h3 class="fw-bold">HOT DEAL THIS WEEK</h3>
+      <p>NEW COLLECTION UP TO 50% OFF</p>
+      <div class="d-flex justify-content-center gap-3 my-4 flex-wrap">
+        <span>02<br />Days</span>
+        <span>10<br />Hours</span>
+        <span>34<br />Min</span>
+        <span>60<br />Sec</span>
+      </div>
+      <button class="btn btn-danger px-5">Shop Now</button>
+    </section>
+
+    <!-- TOP SELLING SECTION -->
+    <section class="container my-5">
+      <h4 class="fw-bold mb-4">TOP SELLING</h4>
+      <div class="row g-4">
+        <!-- Laptop -->
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product01.png" alt="Laptop" />
+            <h6>Laptops</h6>
+            <h5>Gaming Laptop</h5>
+            <p class="price">$1200.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smartphone -->
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product07.png" alt="Smartphone" />
+            <h6>Smartphones</h6>
+            <h5>iPhone 15</h5>
+            <p class="price">$999.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Camera -->
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product02.png" alt="Camera" />
+            <h6>Cameras</h6>
+            <h5>Canon DSLR</h5>
+            <p class="price">$850.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Accessories -->
+        <div class="col-md-3 col-sm-6">
+          <div class="product">
+            <img src="assets/imgs/product04.png" alt="Accessories" />
+            <h6>Accessories</h6>
+            <h5>Wireless Headset</h5>
+            <p class="price">$150.00</p>
+            <div class="product-actions">
+              <i class="bi bi-heart"></i>
+              <i class="bi bi-cart"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter text-center">
+      <h4>Sign Up for the Newsletter</h4>
+      <div class="d-flex justify-content-center mt-3 flex-wrap">
+        <input class="form-control w-25 me-2 mb-2" placeholder="Enter Email" />
+        <button class="btn btn-danger mb-2">Subscribe</button>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="pt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6">
+            <h6>ABOUT US</h6>
+            <p>Electro Store</p>
+          </div>
+          <div class="col-md-3 col-6">
+            <h6>CATEGORIES</h6>
+            <ul class="list-unstyled">
+              <li>Laptops</li>
+              <li>Phones</li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-6">
+            <h6>INFO</h6>
+            <ul class="list-unstyled">
+              <li>Contact</li>
+              <li>Privacy</li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-6">
+            <h6>SERVICE</h6>
+            <ul class="list-unstyled">
+              <li>Account</li>
+              <li>Orders</li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+        <p class="text-center mb-0">© 2025 Electro</p>
+      </div>
+    </footer>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
