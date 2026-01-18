@@ -1,0 +1,168 @@
+
+ 1. Procedure لحساب راتب موظف بعد إضافة علاوة
+
+
+CREATE OR REPLACE PROCEDURE Calculate_Salary_After_Bonus(
+    p_employee_id IN NUMBER,
+    p_bonus_percentage IN NUMBER,
+    p_new_salary OUT NUMBER
+) AS
+    v_salary NUMBER;
+BEGIN
+   
+    SELECT salary INTO v_salary
+    FROM Employees
+    WHERE employee_id = p_employee_id;
+
+  
+    p_new_salary := v_salary + (v_salary * p_bonus_percentage / 100);
+END Calculate_Salary_After_Bonus;
+
+
+ 2. Function لحساب العمر من تاريخ الميلاد
+
+
+
+CREATE OR REPLACE FUNCTION Calculate_Age(
+    p_birth_date IN DATE
+) RETURN NUMBER IS
+    v_age NUMBER;
+BEGIN
+    SELECT FLOOR(MONTHS_BETWEEN(SYSDATE, p_birth_date) / 12) INTO v_age FROM dual;
+    RETURN v_age;
+END Calculate_Age;
+
+
+
+
+
+ 3. Function تُعيد إجمالي رواتب موظفي قسم معين.
+
+
+CREATE OR REPLACE FUNCTION Total_Salary_By_Department(
+    p_department_id IN NUMBER
+) RETURN NUMBER IS
+    v_total_salary NUMBER;
+BEGIN
+    
+    SELECT SUM(salary) INTO v_total_salary
+    FROM Employees
+    WHERE department_id = p_department_id;
+    RETURN v_total_salary;
+END Total_Salary_By_Department;
+
+
+  4. Package يحتوي Procedures وFunctions لإدارة جدول الموظفين بالكامل (إضافة، حذف، تعديل، عرض).
+
+
+CREATE OR REPLACE PACKAGE Employee_Manager AS
+    -- Procedure لإضافة موظف جديد
+    PROCEDURE Add_Employee(
+        p_name IN VARCHAR2,
+        p_department_id IN NUMBER,
+        p_salary IN NUMBER
+    );
+
+    -- Procedure لحذف موظف
+    PROCEDURE Delete_Employee(p_employee_id IN NUMBER);
+
+    -- Procedure لتعديل بيانات موظف
+    PROCEDURE Update_Employee(
+        p_employee_id IN NUMBER,
+        p_name IN VARCHAR2,
+        p_department_id IN NUMBER,
+        p_salary IN NUMBER
+    );
+
+    -- Function لعرض معلومات موظف
+    FUNCTION Get_Employee_Info(p_employee_id IN NUMBER) RETURN VARCHAR2;
+
+    -- Function لحساب إجمالي الرواتب
+    FUNCTION Get_Total_Salaries RETURN NUMBER;
+
+    -- Function لعرض كافة الموظفين
+    FUNCTION Get_All_Employees RETURN SYS_REFCURSOR;
+END Employee_Manager;
+
+
+
+
+
+CREATE OR REPLACE PACKAGE BODY Employee_Manager AS
+    -- Procedure لإضافة موظف جديد
+    PROCEDURE Add_Employee(
+        p_name IN VARCHAR2,
+        p_department_id IN NUMBER,
+        p_salary IN NUMBER
+    ) IS
+    BEGIN
+        INSERT INTO Employees (name, department_id, salary)
+        VALUES (p_name, p_department_id, p_salary);
+    END Add_Employee;
+
+    -- Procedure لحذف موظف
+    PROCEDURE Delete_Employee(p_employee_id IN NUMBER) IS
+    BEGIN
+        DELETE FROM Employees
+        WHERE employee_id = p_employee_id;
+    END Delete_Employee;
+
+    -- Procedure لتعديل بيانات موظف
+    PROCEDURE Update_Employee(
+        p_employee_id IN NUMBER,
+        p_name IN VARCHAR2,
+        p_department_id IN NUMBER,
+        p_salary IN NUMBER
+    ) IS
+    BEGIN
+        UPDATE Employees
+        SET name = p_name, department_id = p_department_id, salary = p_salary
+        WHERE employee_id = p_employee_id;
+    END Update_Employee;
+
+    -- Function لعرض معلومات موظف
+    FUNCTION Get_Employee_Info(p_employee_id IN NUMBER) RETURN VARCHAR2 IS
+        v_employee_info VARCHAR2(255);
+    BEGIN
+        SELECT 'ID: ' || employee_id || ', Name: ' || name || ', Department: ' || department_id || ', Salary: ' || salary
+        INTO v_employee_info
+        FROM Employees
+        WHERE employee_id = p_employee_id;
+        RETURN v_employee_info;
+    END Get_Employee_Info;
+
+    -- Function لحساب إجمالي الرواتب
+    FUNCTION Get_Total_Salaries RETURN NUMBER IS
+        v_total_salary NUMBER;
+    BEGIN
+        SELECT SUM(salary) INTO v_total_salary FROM Employees;
+        RETURN v_total_salary;
+    END Get_Total_Salaries;
+
+    -- Function لعرض كافة الموظفين
+    FUNCTION Get_All_Employees RETURN SYS_REFCURSOR IS
+        v_employee_cursor SYS_REFCURSOR;
+    BEGIN
+        OPEN v_employee_cursor FOR
+            SELECT employee_id, name, department_id, salary FROM Employees;
+        RETURN v_employee_cursor;
+    END Get_All_Employees;
+
+END Employee_Manager;
+
+
+
+--استخدام الحزمة
+EXEC Employee_Manager.Add_Employee('John Doe', 2, 60000);
+
+EXEC Employee_Manager.Delete_Employee(3);
+
+
+
+
+
+
+
+
+
+
